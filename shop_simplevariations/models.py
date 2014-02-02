@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from shop.models.cartmodel import CartItem
-from shop.models.productmodel import Product
+from shop.models import Product
 from shop.util.fields import CurrencyField
 
 #===============================================================================
