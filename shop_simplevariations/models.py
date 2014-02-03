@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from shop.models.cartmodel import CartItem
-from shop.models import Product
 from shop.util.fields import CurrencyField
 
 #===============================================================================
@@ -18,7 +17,7 @@ class TextOption(models.Model):
     description = models.CharField(max_length=255, null=True, blank=True, help_text='A longer description for this option')
     price = CurrencyField(help_text='The price for this custom text') # The price
     #length = models.IntegerField() # TODO: make this limiting in the form
-    products = models.ManyToManyField(Product, related_name='text_options')
+    products = models.ManyToManyField('shop.Product', related_name='text_options')
     
     
     def __unicode__(self):
@@ -55,7 +54,7 @@ class OptionGroup(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField() # Used in forms for example
     description = models.CharField(max_length=255, blank=True, null=True)
-    products = models.ManyToManyField(Product, related_name="option_groups",
+    products = models.ManyToManyField('shop.Product', related_name="option_groups",
                                       blank=True, null=True)
 
     def __unicode__(self):
